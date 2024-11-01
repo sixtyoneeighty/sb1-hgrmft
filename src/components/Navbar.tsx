@@ -26,61 +26,10 @@ function Navbar() {
               Contact Us
             </Link>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900 border-b border-gray-800">
-            <Link
-              to="/services"
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              to="/about"
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              to="/industry-pulse"
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
-              onClick={() => setIsOpen(false)}
-            >
-              Industry Pulse
-            </Link>
-            <Link
-              to="/workshop"
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
-              onClick={() => setIsOpen(false)}
-            >
-              Workshop
-            </Link>
-            <Link
-              to="/contact"
-              className="block px-3 py-2 text-purple-500 hover:text-purple-400"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
+
+export default Navbar;

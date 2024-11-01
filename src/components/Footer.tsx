@@ -28,37 +28,10 @@ function Footer() {
               <li><Link to="/workshop" className="text-gray-400 hover:text-purple-400">Workshop</Link></li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2">
-              <li className="text-gray-400">213-866-8010</li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-purple-400">Get in Touch</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400">
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">
-                <Github className="h-6 w-6" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400">
-            © {new Date().getFullYear()} sixtyoneeighty. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
   );
 }
+
+export default Footer;
