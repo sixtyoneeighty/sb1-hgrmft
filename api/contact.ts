@@ -1,9 +1,14 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
+type ResponseData = {
+  message: string;
+  error?: string;
+};
+
 const handler = async (
-  req: VercelRequest,
-  res: VercelResponse
+  req: NextApiRequest,
+  res: NextApiResponse<ResponseData>
 ) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
@@ -38,7 +43,7 @@ const handler = async (
     });
 
     res.status(200).json({ message: 'Email sent successfully' });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending email:', error);
     res.status(500).json({ 
       message: 'Failed to send email',
