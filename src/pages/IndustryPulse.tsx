@@ -39,10 +39,12 @@ export default function IndustryPulse() {
         const fetchPromises = sources.map(async (source) => {
           try {
             if (source.type === 'rss') {
-              const response = await fetch(
-                `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}`
-              );
+              const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}&api_key=${import.meta.env.VITE_RSS2JSON_API_KEY}&count=20&order_by=pubDate`;
+              
+              const response = await fetch(apiUrl);
               const data = await response.json();
+              
+              console.log(`Fetching ${source.url}:`, data);
               
               if (data.status === 'ok' && Array.isArray(data.items)) {
                 return data.items?.map((item: any) => ({
@@ -51,34 +53,46 @@ export default function IndustryPulse() {
                   pubDate: item.pubDate || new Date().toISOString(),
                   source: new URL(source.url).hostname.replace('www.', '').split('.')[0]
                 }));
+              } else {
+                console.warn(`Invalid response from ${source.url}:`, data);
+                return [];
               }
             } else {
-              // Handle JSON feed
               const response = await fetch(source.url);
               const data = await response.json();
               
-              // Adjust this mapping based on the actual JSON structure
+              console.log(`Fetching JSON feed ${source.url}:`, data);
+              
               return data.items?.map((item: any) => ({
                 title: item.title || 'Untitled',
                 link: item.url || '#',
                 pubDate: item.date_published || new Date().toISOString(),
-                source: 'microsoft' // or extract from URL as needed
+                source: 'microsoft'
               })) || [];
             }
-            return [];
           } catch (err) {
-            console.warn(`Failed to fetch from ${source.url}:`, err);
+            console.error(`Failed to fetch from ${source.url}:`, err);
             return [];
           }
         });
 
         const results = await Promise.all(fetchPromises);
+        console.log('All results:', results);
+        
         const allNews = results
           .flat()
-          .filter(item => item.title && item.link) // Filter out any invalid items
+          .filter(item => {
+            if (!item.title || !item.link) {
+              console.warn('Filtered out item:', item);
+              return false;
+            }
+            return true;
+          })
           .sort((a, b) => 
             new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
           );
+
+        console.log('Processed news items:', allNews);
 
         if (allNews.length === 0) {
           setError('No news items available at the moment.');
