@@ -10,6 +10,10 @@
         {
           "key": "Content-Type",
           "value": "image/png"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     },
