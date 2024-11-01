@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Brain, Code, LineChart, Lock, Palette, Workflow } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
@@ -94,26 +95,37 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <div className="pt-24 pb-16">
-      <PageHeader
-        title="Our Services"
-        subtitle="We're currently accepting a select number of projects - not because we're trying to be exclusive, but because we believe every client deserves our full attention and best work."
-        className="mb-16"
-      />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              features={service.features}
-            />
-          ))}
+    <>
+      <Helmet>
+        <title>Our Services | sixtyoneeighty</title>
+        <meta name="description" content="From custom AI development to strategic consulting, we offer full-spectrum AI solutions tailored to your unique business needs." />
+        <meta property="og:title" content="Our Services | sixtyoneeighty" />
+        <meta property="og:description" content="From custom AI development to strategic consulting, we offer full-spectrum AI solutions tailored to your unique business needs." />
+        <meta property="og:image" content="https://sixtyoneeightyai.com/og-image.png" />
+        <meta property="og:url" content="https://sixtyoneeightyai.com/services" />
+      </Helmet>
+
+      <div className="pt-24 pb-16">
+        <PageHeader
+          title="Our Services"
+          subtitle="We're currently accepting a select number of projects - not because we're trying to be exclusive, but because we believe every client deserves our full attention and best work."
+          className="mb-16"
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

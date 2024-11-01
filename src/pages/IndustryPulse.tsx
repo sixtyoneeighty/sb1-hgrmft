@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import PageHeader from '../components/PageHeader';
 import { Newspaper, ExternalLink } from 'lucide-react';
 
@@ -96,54 +97,65 @@ export default function IndustryPulse() {
   }, []);
 
   return (
-    <div className="pt-24 pb-16">
-      <PageHeader
-        title="Industry Pulse"
-        subtitle="Stay updated with the latest AI news and insights from leading companies and publications."
-        className="mb-16"
-      />
+    <>
+      <Helmet>
+        <title>Industry Pulse | sixtyoneeighty</title>
+        <meta name="description" content="Stay updated with the latest AI news and insights from leading companies and publications." />
+        <meta property="og:title" content="Industry Pulse | sixtyoneeighty" />
+        <meta property="og:description" content="Stay updated with the latest AI news and insights from leading companies and publications." />
+        <meta property="og:image" content="https://sixtyoneeightyai.com/og-image.png" />
+        <meta property="og:url" content="https://sixtyoneeightyai.com/industry-pulse" />
+      </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {loading ? (
-          <div className="flex justify-center items-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
-          </div>
-        ) : error ? (
-          <div className="text-center text-gray-400 py-12">
-            <p>{error}</p>
-          </div>
-        ) : (
-          <div className="grid gap-6">
-            {news.map((item, index) => (
-              <a
-                key={`${item.source}-${index}`}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-6 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition group"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Newspaper className="h-4 w-4 text-purple-500" />
-                      <span className="text-sm text-purple-400 font-medium uppercase">
-                        {item.source}
-                      </span>
-                      <span className="text-sm text-gray-400">
-                        {new Date(item.pubDate).toLocaleDateString()}
-                      </span>
+      <div className="pt-24 pb-16">
+        <PageHeader
+          title="Industry Pulse"
+          subtitle="Stay updated with the latest AI news and insights from leading companies and publications."
+          className="mb-16"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {loading ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+            </div>
+          ) : error ? (
+            <div className="text-center text-gray-400 py-12">
+              <p>{error}</p>
+            </div>
+          ) : (
+            <div className="grid gap-6">
+              {news.map((item, index) => (
+                <a
+                  key={`${item.source}-${index}`}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-6 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition group"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Newspaper className="h-4 w-4 text-purple-500" />
+                        <span className="text-sm text-purple-400 font-medium uppercase">
+                          {item.source}
+                        </span>
+                        <span className="text-sm text-gray-400">
+                          {new Date(item.pubDate).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition">
+                        {item.title}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition">
-                      {item.title}
-                    </h3>
+                    <ExternalLink className="h-5 w-5 text-gray-400 group-hover:text-purple-400 transition" />
                   </div>
-                  <ExternalLink className="h-5 w-5 text-gray-400 group-hover:text-purple-400 transition" />
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
