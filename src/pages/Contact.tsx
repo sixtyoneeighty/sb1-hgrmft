@@ -39,10 +39,13 @@ export default function Contact() {
         body: JSON.stringify(formData)
       });
 
-      if (!response.ok) throw new Error('Failed to send message');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
 
       alert('Message sent successfully!');
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -54,7 +57,7 @@ export default function Contact() {
       });
     } catch (error) {
       console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
+      alert(`Failed to send message: ${error.message}`);
     } finally {
       setIsSubmitting(false);
     }
