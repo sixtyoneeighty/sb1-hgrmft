@@ -6,10 +6,16 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-router-dom', 'lucide-react'],
+      external: [],
     },
   },
   optimizeDeps: {
     include: ['react-router-dom', 'lucide-react']
+  },
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
+  server: {
+    port: 3000
   }
 });
