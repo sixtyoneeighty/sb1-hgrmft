@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Code, LineChart } from 'lucide-react';
+import { ArrowRight, Cpu, Lightbulb, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
