@@ -61,9 +61,9 @@ export default function About() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
-              alt="Team collaboration" 
-              className="rounded-lg shadow-xl"
+              src="https://i.imgur.com/Bv5y99M.jpg"
+              alt="Team collaboration"
+              className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-transparent rounded-lg"></div>
           </div>
