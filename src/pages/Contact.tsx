@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 
