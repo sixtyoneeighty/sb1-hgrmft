@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain } from 'lucide';
+import { Brain, Code, LineChart } from 'lucide-react';
 
 function Footer() {
   return (
@@ -22,11 +22,11 @@ function Footer() {
           <div className="hidden md:block"></div>
 
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/services" className="text-gray-400 hover:text-purple-400 transition-colors">Services</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-purple-400 transition-colors">About</Link></li>
-              <li><Link to="/industry-pulse" className="text-gray-400 hover:text-purple-400 transition-colors">Industry Pulse</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-purple-400">Services</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-purple-400">About</Link></li>
+              <li><Link to="/industry-pulse" className="text-gray-400 hover:text-purple-400">Industry Pulse</Link></li>
             </ul>
           </div>
         </div>

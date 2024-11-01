@@ -1,9 +1,9 @@
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import { Brain, Code, LineChart /* etc */ } from 'lucide-react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  icon?: LucideIcon;
+  icon?: Brain | Code | LineChart /* etc */;
   variant?: 'primary' | 'secondary';
 }
 

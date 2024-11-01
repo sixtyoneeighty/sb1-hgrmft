@@ -1,20 +1,20 @@
 import React from 'react';
-import { Globe, Users, Zap, MessageSquare } from 'lucide';
+import { Brain, Code, LineChart, MessageSquare } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const values = [
   {
-    icon: Globe,
+    icon: Brain,
     title: 'Global Perspective, Local Impact',
     description: 'Our distributed team brings diverse insights from different corners of the world, ensuring solutions that work across cultures and markets.'
   },
   {
-    icon: Users,
+    icon: Code,
     title: 'Size-Proud',
     description: 'Small by choice, focused by design. Our lean team structure ensures direct communication and exceptional attention to every project.'
   },
   {
-    icon: Zap,
+    icon: LineChart,
     title: 'Tech-Agnostic Innovation',
     description: 'We choose the right tools for your specific needs, not our preferences. Our solutions are built on merit, not market trends.'
   },

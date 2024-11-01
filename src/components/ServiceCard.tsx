@@ -1,5 +1,5 @@
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import { Brain, Code, LineChart /* etc */ } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: LucideIcon;

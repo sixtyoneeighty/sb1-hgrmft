@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, Menu, X } from 'lucide';
+import { Brain, Code, LineChart } from 'lucide-react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
