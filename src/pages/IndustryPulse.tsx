@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PageHeader from '../components/PageHeader';
-import { Newspaper, ExternalLink } from 'lucide-react';
+import { Newspaper, ExternalLink } from 'lucide';
 
 interface NewsItem {
   title: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Code, LineChart, Lock, Palette, Workflow } from 'lucide-react';
+import { Brain, Code, LineChart, Lock, Palette, Workflow } from 'lucide';
 import PageHeader from '../components/PageHeader';
 import ServiceCard from '../components/ServiceCard';
 

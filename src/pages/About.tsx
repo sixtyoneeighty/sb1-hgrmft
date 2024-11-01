@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Users, Zap, MessageSquare } from 'lucide-react';
+import { Globe, Users, Zap, MessageSquare } from 'lucide';
 import PageHeader from '../components/PageHeader';
 
 const values = [
