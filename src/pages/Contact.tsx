@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Brain, Code, LineChart /* etc */ } from 'lucide-react';
+import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
+import { submitContactForm } from '../api/contact';
 
 interface FormData {
   name: string;
@@ -31,20 +32,7 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message');
-      }
-
+      await submitContactForm(formData);
       alert('Message sent successfully!');
       setFormData({
         name: '',
@@ -55,7 +43,7 @@ export default function Contact() {
         contactMethod: 'email',
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       alert(`Failed to send message: ${error.message}`);
     } finally {
