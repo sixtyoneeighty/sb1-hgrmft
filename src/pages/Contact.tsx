@@ -41,7 +41,7 @@ export default function Contact() {
     <div className="pt-24 pb-16">
       <PageHeader
         title="Turn Your Business Up to Eleven with AI"
-        subtitle="Ready to break some rules and build something amazing? Let's explore what's possible over a virtual coffee."
+        subtitle="Ready to break some rules and build something amazing? Let's explore what's possible."
         className="mb-16"
       />
 
@@ -65,7 +65,7 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-purple-500 mt-1" />
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold">Email</h4>
-                    <p className="text-gray-400">contact@sixtyoneeighty.com</p>
+                    <p className="text-gray-400">contact@sixtyoneeightyai.com</p>
                   </div>
                 </div>
 
