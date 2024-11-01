@@ -22,7 +22,7 @@ export default function Home() {
                 Tech Rebels with a Purpose
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                We're five AI enthusiasts who combine cutting-edge technology with fresh perspectives to create solutions that actually make sense for your business.
+                We're a band of AI enthusiasts who combine cutting-edge technology with fresh perspectives to create solutions that actually make sense for your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
