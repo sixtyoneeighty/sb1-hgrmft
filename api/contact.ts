@@ -1,0 +1,47 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import nodemailer from 'nodemailer';
+
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',  // or your preferred SMTP server
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_APP_PASSWORD // Use Gmail App Password
+      }
+    });
+
+    const { name, email, company, projectType, message, contactMethod, timezone } = req.body;
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: 'contact@sixtyoneeightyai.com',
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Project Type:</strong> ${projectType}</p>
+        <p><strong>Preferred Contact:</strong> ${contactMethod}</p>
+        <p><strong>Timezone:</strong> ${timezone}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
+    });
+
+    res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send email' });
+  }
+}

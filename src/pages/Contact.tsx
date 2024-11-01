@@ -24,10 +24,40 @@ export default function Contact() {
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be implemented here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) throw new Error('Failed to send message');
+
+      alert('Message sent successfully!');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        projectType: 'custom-ai',
+        message: '',
+        contactMethod: 'email',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -212,8 +242,8 @@ export default function Contact() {
               </div>
 
               <div>
-                <Button type="submit" icon={Send}>
-                  Send Message
+                <Button type="submit" icon={Send} disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
             </form>
