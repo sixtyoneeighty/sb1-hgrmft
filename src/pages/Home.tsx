@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Cpu, Lightbulb, Scale } from 'lucide-react';
+import { ArrowRight, Cpu, Lightbulb, Scale } from 'lucide';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="p-8 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition">
               <Cpu className="h-12 w-12 text-purple-500 mb-6" />
-              <h3 className="text-2xl font-bold mb-4">Custom Solutions</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Custom Solutions</h3>
               <p className="text-gray-400">
                 We craft unique AI solutions that fit your business like a glove, bringing fresh perspectives and cutting-edge expertise to every project.
               </p>
@@ -58,7 +58,7 @@ export default function Home() {
 
             <div className="p-8 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition">
               <Lightbulb className="h-12 w-12 text-purple-500 mb-6" />
-              <h3 className="text-2xl font-bold mb-4">Strategic Vision</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Strategic Vision</h3>
               <p className="text-gray-400">
                 Think of us as your AI translation team - we speak both 'tech' and 'human,' helping uncover possibilities you might not have considered.
               </p>
@@ -66,7 +66,7 @@ export default function Home() {
 
             <div className="p-8 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 transition">
               <Scale className="h-12 w-12 text-purple-500 mb-6" />
-              <h3 className="text-2xl font-bold mb-4">Scalable Technology</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Scalable Technology</h3>
               <p className="text-gray-400">
                 We build for both today and tomorrow, ensuring your technology can handle whatever comes next without breaking your budget.
               </p>
