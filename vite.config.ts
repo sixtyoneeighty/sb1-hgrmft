@@ -1,21 +1,22 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          icons: ['lucide']
-        }
-      }
-    }
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
   },
-  optimizeDeps: {
-    include: ['lucide']
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+      },
+    },
+  },
+  server: {
+    port: 3000
   }
 });
