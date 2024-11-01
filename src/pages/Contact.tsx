@@ -79,7 +79,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-purple-400 transition"
                     >
-                      +1 213-866-8010
+                      +1 918-798-2012
                     </a>
                   </div>
                 </div>
