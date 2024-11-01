@@ -21,7 +21,6 @@ function Navbar() {
             <Link to="/services" className="text-gray-300 hover:text-purple-400 transition">Services</Link>
             <Link to="/about" className="text-gray-300 hover:text-purple-400 transition">About</Link>
             <Link to="/industry-pulse" className="text-gray-300 hover:text-purple-400 transition">Industry Pulse</Link>
-            <Link to="/workshop" className="text-gray-300 hover:text-purple-400 transition">Workshop</Link>
             <Link to="/contact" className="px-4 py-2 rounded-md bg-purple-600 hover:bg-purple-700 text-white transition">
               Contact Us
             </Link>
