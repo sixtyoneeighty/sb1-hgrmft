@@ -30,7 +30,7 @@ export default function About() {
     <div className="pt-24 pb-16">
       <PageHeader
         title="Our Story"
-        subtitle="We're not your typical tech consultants - and we wear that as a badge of honor."
+        subtitle="We're not your typical tech consultants -  and we're pretty proud of that."
         className="mb-16"
       />
 
@@ -39,15 +39,9 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="space-y-6">
+            <h2 className="text-2xl font-bold mt-8 mb-4">Our Story</h2>
               <p>
-                We're not your typical tech consultants - and we're pretty proud of that. We're a band of five AI enthusiasts who decided to ditch the corporate playbook and build something different. Scattered across the globe but connected by our passion for technology and a shared belief that there's always a better way to do things, we created sixtyoneeighty.
-              </p>
-
-
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Our Story</h2>
-              <p>
-                Born from friendship and a shared frustration with one-size-fits-all solutions, we combined our diverse backgrounds and expertise to create a company that puts relationships first - both with each other and our clients. From our base in Tulsa to team members across different time zones, we bring global perspectives to local challenges.
+                We're a band of AI enthusiasts who decided to ditch the corporate playbook and build something different. Scattered across the country but connected by our passion for technology and a shared belief that there's always a better way to do things, we created sixtyoneeighty. Born from friendship and a shared frustration with one-size-fits-all solutions, we combined our diverse backgrounds and expertise to create a company that puts relationships first - both with each other and our clients. Located across different time zones, we bring global perspectives to local challenges.
               </p>
 
               <h2 className="text-2xl font-bold mt-8 mb-4">What Makes Us Different?</h2>
@@ -67,9 +61,9 @@ export default function About() {
           </div>
           <div className="relative">
             <img 
-              src="https://i.imgur.com/Bv5y99M.jpg"
-              alt="Team collaboration"
-              className="w-full h-[400px] object-cover rounded-lg"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
+              alt="Team collaboration" 
+              className="rounded-lg shadow-xl"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-transparent rounded-lg"></div>
           </div>
