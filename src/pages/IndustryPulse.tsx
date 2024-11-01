@@ -39,9 +39,10 @@ export default function IndustryPulse() {
         const fetchPromises = sources.map(async (source) => {
           try {
             if (source.type === 'rss') {
-              const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}&api_key=${import.meta.env.VITE_RSS2JSON_API_KEY}&count=20&order_by=pubDate`;
-              
-              const response = await fetch(apiUrl);
+              const response = await fetch('/.netlify/functions/fetch-rss', {
+                method: 'POST',
+                body: JSON.stringify({ url: source.url })
+              });
               const data = await response.json();
               
               console.log(`Fetching ${source.url}:`, data);
