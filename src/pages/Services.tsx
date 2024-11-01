@@ -1,9 +1,17 @@
 import React from 'react';
 import { Brain, Code, LineChart, Lock, Palette, Workflow } from 'lucide';
+import type { LucideIcon } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import ServiceCard from '../components/ServiceCard';
 
-const services = [
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const services: Service[] = [
   {
     icon: Brain,
     title: 'Custom AI Development',
