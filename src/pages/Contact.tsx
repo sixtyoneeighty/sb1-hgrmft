@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Clock, Send } from 'lucide-react';
+import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 
@@ -66,6 +66,21 @@ export default function Contact() {
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold">Email</h4>
                     <p className="text-gray-400">contact@sixtyoneeightyai.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <MessageCircle className="h-6 w-6 text-purple-500 mt-1" />
+                  <div className="ml-4">
+                    <h4 className="text-lg font-semibold">WhatsApp</h4>
+                    <a 
+                      href="https://wa.me/19187982012"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-purple-400 transition"
+                    >
+                      +1 213-866-8010
+                    </a>
                   </div>
                 </div>
 
