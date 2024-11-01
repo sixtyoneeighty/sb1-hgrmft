@@ -11,21 +11,11 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['react', 'react-dom', 'react-router-dom'],
       output: {
-        format: 'esm',
-        entryFileNames: '[name]-[hash].js',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
-        globals: {
-          'react': 'React',
-          'react-dom': 'ReactDOM',
-          'react-router-dom': 'ReactRouterDOM'
-        }
-      }
-    }
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
   },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
-  }
 });
