@@ -38,25 +38,34 @@ export default function About() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Breaking the Corporate Mold</h2>
-            <p className="text-gray-300 mb-6">
-            We're not your typical tech consultants - and we're pretty proud of that. We're a band of five AI enthusiasts who decided to ditch the corporate playbook and build something different. Scattered across the globe but connected by our passion for technology and a shared belief that there's always a better way to do things, we created sixtyoneeighty.
-            Why sixtyoneeighty? Because like our name, we believe in doing things a bit differently. We're the kind of team that geeks out over new AI models during the day and debates the best pizza toppings during our virtual hangouts. (We're still divided on the pineapple question.)
-            Our story born from friendship and a shared frustration with one-size-fits-all solutions, we combined our diverse backgrounds and expertise to create a company that puts relationships first - both with each other and our clients. From our base in Tulsa to team members across different time zones, we bring global perspectives to local challenges.
-            What Makes Us Different??
-            We're real people who speak human: No corporate buzzwords or tech jargon (unless you're into that)
-            We're size-proud: Being a small team means you get our undivided attention and best work
-            We're tech-agnostic: Whether it's Claude, GPT, Gemini, or Llama, we choose what works best for YOU
-            We're straight shooters: If something won't benefit your business, we'll tell you
-            We're rebels with a plan: We may not follow the conventional playbook, but we always deliver results
-            Our Approach Think of us as your tech-savvy friends who happen to be AI experts. We start every project with a conversation - not a sales pitch. We believe in understanding your business inside and out, because the best solutions come from really getting what makes your operation tick.
+            <div className="space-y-6">
+              <p>
+                We're not your typical tech consultants - and we're pretty proud of that. We're a band of five AI enthusiasts who decided to ditch the corporate playbook and build something different. Scattered across the globe but connected by our passion for technology and a shared belief that there's always a better way to do things, we created sixtyoneeighty.
+              </p>
 
-            </p>
-            <p className="text-gray-300">
-              Why sixtyoneeighty? Because like our name, we believe in doing things differently. We're the kind of team 
-              that geeks out over new AI models during the day and debates the best pizza toppings during our virtual 
-              hangouts. (The pineapple debate rages on.)
-            </p>
+              <p>
+                Why sixtyoneeighty? Because like our name, we believe in doing things a bit differently. We're the kind of team that geeks out over new AI models during the day and debates the best pizza toppings during our virtual hangouts. (We're still divided on the pineapple question.)
+              </p>
+
+              <h2 className="text-2xl font-bold mt-8 mb-4">Our Story</h2>
+              <p>
+                Born from friendship and a shared frustration with one-size-fits-all solutions, we combined our diverse backgrounds and expertise to create a company that puts relationships first - both with each other and our clients. From our base in Tulsa to team members across different time zones, we bring global perspectives to local challenges.
+              </p>
+
+              <h2 className="text-2xl font-bold mt-8 mb-4">What Makes Us Different?</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>We're real people who speak human: No corporate buzzwords or tech jargon (unless you're into that)</li>
+                <li>We're size-proud: Being a small team means you get our undivided attention and best work</li>
+                <li>We're tech-agnostic: Whether it's Claude, GPT, Gemini, or Llama, we choose what works best for YOU</li>
+                <li>We're straight shooters: If something won't benefit your business, we'll tell you</li>
+                <li>We're rebels with a plan: We may not follow the conventional playbook, but we always deliver results</li>
+              </ul>
+
+              <h2 className="text-2xl font-bold mt-8 mb-4">Our Approach</h2>
+              <p>
+                Think of us as your tech-savvy friends who happen to be AI experts. We start every project with a conversation - not a sales pitch. We believe in understanding your business inside and out, because the best solutions come from really getting what makes your operation tick.
+              </p>
+            </div>
           </div>
           <div className="relative">
             <img 
