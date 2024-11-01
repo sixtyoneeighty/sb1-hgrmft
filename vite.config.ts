@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-router-dom'],
+      external: ['react-router-dom', 'lucide-react'],
     },
   },
+  optimizeDeps: {
+    include: ['react-router-dom', 'lucide-react']
+  }
 });
