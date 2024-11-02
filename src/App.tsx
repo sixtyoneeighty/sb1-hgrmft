@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import IndustryPulse from './pages/IndustryPulse';
 import Contact from './pages/Contact';
+import ChatPopup from './components/ChatPopup';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <ChatPopup />
         </div>
       </Router>
     </HelmetProvider>
