@@ -11,7 +11,7 @@ function Home() {
         <div 
           className="relative min-h-[90vh] flex items-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80)',
+            backgroundImage: 'url(https://i.imgur.com/zuAi22l.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -77,3 +77,5 @@ function Home() {
     </div>
   );
 }
+
+export default Home;

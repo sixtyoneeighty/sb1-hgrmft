@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, Github, Linkedin, Twitter } from 'lucide-react';
+import { Brain, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 function Footer() {
   return (
@@ -32,8 +32,16 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">213-866-8010</li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-purple-400">Get in Touch</Link></li>
+              <li className="text-gray-400">850-706-0180</li>
+              <li>
+                <a 
+                  href="mailto:info@sixtyoneeightyai.com" 
+                  className="text-gray-400 hover:text-purple-400 flex items-center gap-2"
+                >
+                  <Mail className="h-4 w-4" />
+                  info@sixtyoneeightyai.com
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -52,13 +60,12 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400">
-            © {new Date().getFullYear()} sixtyoneeighty. All rights reserved.
-          </p>
+        <div className="mt-8 pt-8 border-t border-gray-800">
+          <p className="text-center text-gray-400">&copy; 2024 sixtyoneeighty. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 }
+
+export default Footer;

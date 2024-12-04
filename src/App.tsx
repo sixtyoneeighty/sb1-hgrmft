@@ -7,7 +7,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import IndustryPulse from './pages/IndustryPulse';
-
+import Workshop from './pages/Workshop';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/industry-pulse" element={<IndustryPulse />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/workshop" element={<Workshop />} />
           </Routes>
         </main>
         <Footer />

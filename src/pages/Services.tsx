@@ -84,7 +84,7 @@ const services = [
   }
 ];
 
-export default function Services() {
+function Services() {
   return (
     <div className="pt-24 pb-16">
       <PageHeader
@@ -109,3 +109,5 @@ export default function Services() {
     </div>
   );
 }
+
+export default Services;

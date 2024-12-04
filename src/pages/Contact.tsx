@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Mail, Phone, Clock, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 
@@ -24,10 +25,43 @@ export default function Contact() {
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be implemented here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          projectType: 'custom-ai',
+          message: '',
+          contactMethod: 'email',
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -57,7 +91,7 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-purple-500 mt-1" />
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold">Phone</h4>
-                    <p className="text-gray-400">213-866-8010</p>
+                    <p className="text-gray-400">850-706-0180</p>
                   </div>
                 </div>
 
@@ -65,7 +99,12 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-purple-500 mt-1" />
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold">Email</h4>
-                    <p className="text-gray-400">contact@sixtyoneeighty.com</p>
+                    <a 
+                      href="mailto:info@sixtyoneeightyai.com"
+                      className="text-gray-400 hover:text-purple-400 transition-colors"
+                    >
+                      info@sixtyoneeightyai.com
+                    </a>
                   </div>
                 </div>
 
@@ -82,7 +121,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -196,9 +235,21 @@ export default function Contact() {
                 </div>
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-800/50 border border-green-700 rounded-lg text-green-200">
+                  Thank you for your message! We'll get back to you as soon as possible.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-800/50 border border-red-700 rounded-lg text-red-200">
+                  Sorry, there was an error sending your message. Please try again or contact us directly.
+                </div>
+              )}
+
               <div>
-                <Button type="submit" icon={Send}>
-                  Send Message
+                <Button type="submit" icon={Send} disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
             </form>
